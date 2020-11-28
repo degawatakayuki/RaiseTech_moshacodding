@@ -1,0 +1,207 @@
+.l-header {
+    position: fixed;
+    top: 0 ;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+
+    &__title {
+        width: 200px;
+        align-self: center;
+        margin-left: 10px;
+
+        img {
+            height: 30px;
+            width: auto;
+        }  
+    }
+    &__subtitle {
+        display: none;
+    }
+    &__nav {
+        align-self: flex-end;
+        margin-bottom: 5px;
+
+        #nav__btn {
+            width: 50px;
+
+            #menu-trigger {
+                display: block;
+                width: 50px;
+                height: 50px;
+                position: relative;
+
+                &.close {
+                    background-color: $main-color;
+                }
+
+                hr {
+                    display: block;
+                    margin: 0;
+                    border: none;
+                    width: 50%;/*バツ線の長さ*/
+                    height: 2px;/*バツ線の太さ*/
+                    background: $main-color;
+                    transform-origin:0% 50%;
+                    position: absolute;
+                    top: 33%;
+                    left: 25%;
+                    transition: .3s;
+                }
+                hr:nth-of-type(2){
+                    top: 52%;
+                }
+                
+                hr:nth-of-type(3){
+                    top: 70%;
+                }
+
+                &.close {
+                    hr {
+                        left: 30%;
+                        background: $text-white;
+                    }
+                    hr:nth-of-type(1)  {
+                        top: 30%;
+                        width: 30px;
+                        transform: rotate(45deg);
+
+                    }
+                    
+                    hr:nth-of-type(2){
+                        opacity: 0;
+                    }
+                    
+                    hr:nth-of-type(3){
+                        top: 70%;
+                        width: 30px;
+                            transform: rotate(-45deg);
+                            width: 60%;
+                    }
+                }
+            }
+        }
+            
+    
+        #nav__link {
+            position: absolute;
+            width: 100%;
+            background-color: #ffffff;
+            top: 50px;
+            left: 0;
+            z-index: 100;
+
+            li {
+                font-weight: 400;
+                line-height: 1.6;
+                padding: 10px;
+            }
+            & > li:hover {
+                background-color: #d4f1f8;
+                color: #121212;
+            }
+
+            .navlink-btn__open {
+                display: block;
+                width: 30px;
+                height: 30px;
+                float: right;
+                position: relative;
+
+                span {
+                    display: block;
+                    position: absolute;
+                    top: 10px;
+                    width: 25px;
+                    height: 2px;
+                    background: $text-black;
+                }
+
+                span:nth-of-type(1)  {
+                    transform: rotate(90deg);
+                    position: absolute;
+
+                }
+            }
+        }
+    }
+}
+
+/* PC用 */
+@media (min-width: $pc-breakpoint) {
+    .l-header {
+        height: 70px;
+    
+        &__title {
+            width: 420px;
+    
+            img {
+                height: 45px;
+                float: left;
+            }  
+        }
+        &__subtitle {
+            display: block;
+            font-size: 0.875rem;
+            line-height: 1.125rem;
+            color: $text-maincolor;
+            float: right;
+            padding: 5px 0;
+
+            span {
+                font-size: 1.125rem;
+                line-height: 1.44rem;
+                font-weight: 900;
+            }
+        }
+
+        &__nav {
+            align-self: flex-end;
+            margin-bottom: 5px;
+    
+            #nav__btn {
+                display: none;
+            }
+                
+        
+            #nav__link {
+                display: flex;
+                position: relative;
+                top: 0px;
+                width: 600px;
+    
+                li {
+                    font-weight: 400;
+                    line-height: 1.6;
+                    padding: 10px;
+                }
+                & > li:hover {
+                    background-color: #d4f1f8;
+                    color: #121212;
+                }
+
+                .navlink-btn__open {
+                    display: none;
+                }
+
+                .submenu-list {
+                    position: absolute;
+                    top:50px;
+                    z-index: 100;
+                    background-color: $text-white;
+                    
+                    li {
+                        padding: 20px;
+                    margin: 0;
+                    }
+                }
+    
+                
+            }
+        }
+    }
+}
